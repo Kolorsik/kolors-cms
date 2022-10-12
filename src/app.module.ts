@@ -4,11 +4,14 @@ import { AppService } from './app.service';
 import { UsersModule } from './modules/users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './modules/users/user.entity';
+import { User } from './modules/users/users.entity';
+import { DealsModule } from './modules/deals/deals.module';
+import { Deal } from './modules/deals/deals.entity';
 
 @Module({
   imports: [
     UsersModule,
+    DealsModule,
     ConfigModule.forRoot({ envFilePath: 'dev.env' }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -17,7 +20,7 @@ import { User } from './modules/users/user.entity';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      entities: [User],
+      entities: [User, Deal],
       synchronize: true,
       ssl: {
         rejectUnauthorized: false,

@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { DealDto } from './deals.dto';
+import { DealDto } from './dto/deals.dto';
 import { Deal } from './deals.entity';
 import { DealsService } from './deals.service';
 

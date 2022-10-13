@@ -1,16 +1,14 @@
 import {
-  Entity,
   Column,
   CreateDateColumn,
+  Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
-  ManyToOne,
 } from 'typeorm';
-import { Status } from '../statuses/statuses.entity';
+import { Deal } from '../deals/deals.entity';
 
-import { User } from '../users/users.entity';
-
-@Entity('deals')
-export class Deal {
+@Entity('statuses')
+export class Status {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -20,11 +18,8 @@ export class Deal {
   @Column({ type: 'varchar' })
   description: string;
 
-  @ManyToOne(() => User, (user) => user.deals)
-  user: User;
-
-  @ManyToOne(() => Status, (status) => status.deals)
-  status: Status;
+  @OneToMany(() => Deal, (deal) => deal.status)
+  deals: Deal[];
 
   @CreateDateColumn({
     type: 'timestamp',

@@ -1,12 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kolors CMS</title>
-</head>
-<body>
-    {{ message }}
-</body>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link href='css/halfmoon-variables.min.css' rel='stylesheet' />
+    <title>Kolors CRM</title>
+  </head>
+  <body>
+
+    <div class='page-wrapper with-sidebar'>
+      <div class='sidebar'>
+        <div class='sidebar-menu'>
+          <div class='sidebar-content'>
+          </div>
+
+          <h5 class='sidebar-title'>Getting started</h5>
+          <div class='sidebar-divider'></div>
+          <a href='#' class='sidebar-link active'>Installation</a>
+          <a href='#' class='sidebar-link'>CLI commands</a>
+          <br />
+          <h5 class='sidebar-title'>Components</h5>
+          <div class='sidebar-divider'></div>
+          <a href='#' class='sidebar-link'>File explorer</a>
+          <a href='#' class='sidebar-link'>Spreadsheet</a>
+          <a href='#' class='sidebar-link'>Map</a>
+          <a href='#' class='sidebar-link'>Messenger</a>
+        </div>
+      </div>
+
+      <div class='content-wrapper'>
+
+        <div class='m-20 row'>
+          <div class='col-10'>
+            <input
+              type='text'
+              class='form-control'
+              placeholder='Search by name of telephone'
+            />
+          </div>
+          <div class='col-1 ml-5'>
+            <button class='btn'>Search</button>
+          </div>
+        </div>
+
+        {{#each users}}
+          <div class='card'>
+            <h2 class='card-title'>
+              <a href={{this.id}}>{{this.firstName}}
+                {{this.lastName}}
+                (age:
+                {{this.age}})</a>
+            </h2>
+            <div class='text-left'>
+              <a href='#' class='btn'>{{this.telephone}}</a>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+  </body>
+  <script src='js/halfmoon.min.js'></script>
 </html>

@@ -3,7 +3,7 @@ import { StatusDto } from './dto/statuses.dto';
 import { Status } from './statuses.entity';
 import { StatusesService } from './statuses.service';
 
-@Controller('statuses')
+@Controller('api/statuses')
 export class StatusesController {
   constructor(private readonly statusService: StatusesService) {}
 

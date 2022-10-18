@@ -1,0 +1,51 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link href='css/halfmoon-variables.min.css' rel='stylesheet' />
+    <title>Kolors CRM</title>
+  </head>
+  <body>
+
+    <div class='page-wrapper with-sidebar'>
+      {{> sidebar}}
+
+      <div class='content-wrapper'>
+
+        <div class='m-20 row'>
+          <div class='col-6'>
+            <h1>User info:</h1>
+            <p>Name: {{user.firstName}} {{user.lastName}}</p>
+            <p>Telephone: {{user.telephone}}</p>
+            <p>Registered: {{user.createdAt}}</p>
+            <p>Age: {{user.age}}</p>
+          </div>
+
+          <div class='col-6'>
+            <h1>Deals:</h1>
+            {{#each user.deals}}
+              <div class='w-400 mw-full'>
+                <div class='card m-0 mb-10 p-20'>
+                  <h2 class='card-title'>
+                    {{this.title}}
+                  </h2>
+                  <p class='text-muted'>
+                    Subtitle that hooks the reader and prompts them to click on
+                    the read more button.
+                  </p>
+                  <div class='text-right'>
+                    <a href='#' class='btn'>Read more</a>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+  <script src='js/halfmoon.min.js'></script>
+</html>

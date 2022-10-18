@@ -4,7 +4,7 @@ import { Deal } from './deals.entity';
 import { DealsService } from './deals.service';
 import { SetStatusForDealDto } from './dto/setStatusForDeal.dto';
 
-@Controller('deals')
+@Controller('api/deals')
 export class DealsController {
   constructor(private readonly dealService: DealsService) {}
 

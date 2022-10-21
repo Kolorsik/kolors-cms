@@ -3,17 +3,18 @@
     <meta charset='UTF-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link href='css/halfmoon-variables.min.css' rel='stylesheet' />
+    <link href='/css/halfmoon-variables.min.css' rel='stylesheet' />
     <title>Kolors CRM</title>
   </head>
   <body>
 
     <div class='page-wrapper with-sidebar'>
-      {{> sidebar}}
+
+      {{!> sidebar}}
 
       <div class='content-wrapper'>
 
-        <div class='m-20 row'>
+        <div class='m-20'>
           <div class='col-6'>
             <h1>User info:</h1>
             <p>Name: {{user.firstName}} {{user.lastName}}</p>
@@ -22,30 +23,94 @@
             <p>Age: {{user.age}}</p>
           </div>
 
-          <div class='col-6'>
-            <h1>Deals:</h1>
-            {{#each user.deals}}
-              <div class='w-400 mw-full'>
-                <div class='card m-0 mb-10 p-20'>
-                  <h2 class='card-title'>
-                    {{this.title}}
-                  </h2>
-                  <p class='text-muted'>
-                    Subtitle that hooks the reader and prompts them to click on
-                    the read more button.
-                  </p>
-                  <div class='text-right'>
-                    <a href='#' class='btn'>Read more</a>
+          <h1>Deals:</h1>
+
+          {{#each user.deals}}
+
+            <div class='row'>
+              {{#ifeq this.status.title 'Open'}}
+                <div class='col-2 m-10 ml-0'>
+                  <h2>Open</h2>
+                  <div class='w-400 mw-full'>
+                    <div class='card m-0 mb-10 p-20'>
+                      <h2 class='card-title'>
+                        {{this.title}}
+                      </h2>
+                      <p class='text-muted'>
+                        {{this.description}}
+                      </p>
+                      <div class='text-right'>
+                        <a href='#' class='btn'>Read more</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            {{/each}}
-          </div>
+              {{/ifeq}}
+
+              {{#ifeq this.status.title 'In Progress'}}
+                <div class='col-2 m-10'>
+                  <h2>In prog</h2>
+                  <div class='w-400 mw-full'>
+                    <div class='card m-0 mb-10 p-20'>
+                      <h2 class='card-title'>
+                        {{this.title}}
+                      </h2>
+                      <p class='text-muted'>
+                        {{this.description}}
+                      </p>
+                      <div class='text-right'>
+                        <a href='#' class='btn'>Read more</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {{/ifeq}}
+
+              {{#ifeq this.status.title 'Review'}}
+                <div class='col-2 m-10'>
+                  <h2>Review</h2>
+                  <div class='w-400 mw-full'>
+                    <div class='card m-0 mb-10 p-20'>
+                      <h2 class='card-title'>
+                        {{this.title}}
+                      </h2>
+                      <p class='text-muted'>
+                        {{this.description}}
+                      </p>
+                      <div class='text-right'>
+                        <a href='#' class='btn'>Read more</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {{/ifeq}}
+
+              {{#ifeq this.status.title 'Completed'}}
+                <div class='col-2 m-10'>
+                  <h2>Completed</h2>
+                  <div class='w-400 mw-full'>
+                    <div class='card m-0 mb-10 p-20'>
+                      <h2 class='card-title'>
+                        {{this.title}}
+                      </h2>
+                      <p class='text-muted'>
+                        {{this.description}}
+                      </p>
+                      <div class='text-right'>
+                        <a href='#' class='btn'>Read more</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            {{/ifeq}}
+
+          {{/each}}
         </div>
 
       </div>
     </div>
 
   </body>
-  <script src='js/halfmoon.min.js'></script>
+  <script src='/js/halfmoon.min.js'></script>
 </html>

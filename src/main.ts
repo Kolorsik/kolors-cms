@@ -10,6 +10,12 @@ async function bootstrap() {
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
   hbs.registerPartials(join(__dirname, '..', 'views', 'partials'));
+  hbs.registerHelper('ifeq', function (a, b, options) {
+    if (a == b) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
   app.setViewEngine('hbs');
 
   await app.listen(3000);

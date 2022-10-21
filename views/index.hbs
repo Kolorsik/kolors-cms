@@ -3,7 +3,7 @@
     <meta charset='UTF-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <link href='css/halfmoon-variables.min.css' rel='stylesheet' />
+    <link href='/css/halfmoon-variables.min.css' rel='stylesheet' />
     <title>Kolors CRM</title>
   </head>
   <body>
@@ -31,7 +31,7 @@
         {{#each users}}
           <div class='card'>
             <h2 class='card-title'>
-              <a href={{this.id}}>{{this.firstName}}
+              <a href='/users/{{this.id}}'>{{this.firstName}}
                 {{this.lastName}}
                 (age:
                 {{this.age}})</a>
@@ -45,5 +45,5 @@
     </div>
 
   </body>
-  <script src='js/halfmoon.min.js'></script>
+  <script src='/js/halfmoon.min.js'></script>
 </html>

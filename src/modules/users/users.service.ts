@@ -18,18 +18,14 @@ export class UsersService {
 
   public findAll(): Promise<User[]> {
     return this.userRepository.find({
-      relations: {
-        deals: true,
-      },
+      relations: ['deals', 'deals.status'],
     });
   }
 
   public findById(id: string): Promise<User> {
     return this.userRepository.findOne({
       where: { id },
-      relations: {
-        deals: true,
-      },
+      relations: ['deals', 'deals.status'],
     });
   }
 

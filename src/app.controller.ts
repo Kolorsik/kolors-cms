@@ -1,4 +1,5 @@
-import { Controller, Get, Param, Render } from '@nestjs/common';
+import { Controller, Get, Param, Render, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { AppService } from './app.service';
 import { UsersService } from './modules/users/users.service';
 
@@ -10,6 +11,11 @@ export class AppController {
   ) {}
 
   @Get('/')
+  redirect(@Res() res: Response) {
+    res.status(302).redirect('/users');
+  }
+
+  @Get('/users')
   @Render('index')
   async getHello(): Promise<any> {
     return {
@@ -18,7 +24,7 @@ export class AppController {
     };
   }
 
-  @Get('/:id')
+  @Get('/users/:id')
   @Render('user')
   async getUserById(@Param('id') userId: string): Promise<any> {
     const user = await this.userService.findById(userId);

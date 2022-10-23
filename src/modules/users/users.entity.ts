@@ -27,9 +27,6 @@ export class User {
   @OneToMany(() => Deal, (deal) => deal.user)
   deals: Deal[];
 
-  @CreateDateColumn({
-    type: 'timestamp',
-    default: () => 'NOW()',
-  })
+  @Column({ type: 'timestamp', nullable: true })
   createdAt: Date;
 }

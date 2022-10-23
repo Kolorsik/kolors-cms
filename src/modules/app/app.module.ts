@@ -1,15 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UsersModule } from './modules/users/users.module';
+import { UsersModule } from '../users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from './modules/users/users.entity';
-import { DealsModule } from './modules/deals/deals.module';
-import { Deal } from './modules/deals/deals.entity';
-import { StatusesModule } from './modules/statuses/statuses.module';
-import { Status } from './modules/statuses/statuses.entity';
-import { UsersService } from './modules/users/users.service';
+import { User } from '../users/users.entity';
+import { DealsModule } from '../deals/deals.module';
+import { Deal } from '../deals/deals.entity';
+import { StatusesModule } from '../statuses/statuses.module';
+import { Status } from '../statuses/statuses.entity';
+import { UsersService } from '../users/users.service';
 
 @Module({
   imports: [

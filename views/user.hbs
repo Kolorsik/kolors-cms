@@ -10,7 +10,7 @@
 
     <div class='page-wrapper with-sidebar'>
 
-      {{!> sidebar}}
+      {{> sidebar}}
 
       <div class='content-wrapper'>
 
@@ -25,23 +25,23 @@
 
           <h1>Deals:</h1>
 
-          {{#each user.deals}}
+          <div class='row'>
 
-            <div class='row'>
+            {{#each user.deals}}
+
+              {{> modal}}
+
               {{#ifeq this.status.title 'Open'}}
                 <div class='col-2 m-10 ml-0'>
                   <h2>Open</h2>
                   <div class='w-400 mw-full'>
                     <div class='card m-0 mb-10 p-20'>
                       <h2 class='card-title'>
-                        {{this.title}}
+                        <a href='#deal'>{{this.title}}</a>
                       </h2>
                       <p class='text-muted'>
                         {{this.description}}
                       </p>
-                      <div class='text-right'>
-                        <a href='#' class='btn'>Read more</a>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -58,9 +58,6 @@
                       <p class='text-muted'>
                         {{this.description}}
                       </p>
-                      <div class='text-right'>
-                        <a href='#' class='btn'>Read more</a>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -77,9 +74,6 @@
                       <p class='text-muted'>
                         {{this.description}}
                       </p>
-                      <div class='text-right'>
-                        <a href='#' class='btn'>Read more</a>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -96,16 +90,13 @@
                       <p class='text-muted'>
                         {{this.description}}
                       </p>
-                      <div class='text-right'>
-                        <a href='#' class='btn'>Read more</a>
-                      </div>
                     </div>
                   </div>
                 </div>
-            </div>
-            {{/ifeq}}
+              {{/ifeq}}
 
-          {{/each}}
+            {{/each}}
+          </div>
         </div>
 
       </div>
